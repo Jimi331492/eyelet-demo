@@ -1,0 +1,19 @@
+{
+	"name": "@eyelet/stylelint-config",
+	"version": "1.0.0",
+	"description": "stylelint config of eyelet",
+	"keywords": [
+		"stylelint"
+	],
+	"author": "",
+	"license": "MIT",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"dependencies": {
+		"stylelint-config-prettier": "^8.0.2",
+		"stylelint-config-standard": "30.0.1"
+	}
+}

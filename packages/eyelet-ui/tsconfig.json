@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"strict": true, // 可以对 `this` 上的数据属性进行更严格的推断
+		"downlevelIteration": true,
+		"declaration": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowJs": false, // 编译时，允许有 js 文件
+		"lib": ["esnext", "dom"],
+		"allowSyntheticDefaultImports": true, // 允许引入没有默认导出的模块
+		"jsx": "preserve"
+	}
+}

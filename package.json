@@ -1,0 +1,69 @@
+{
+	"name": "eyelet",
+	"private": true,
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"dev": "pnpm -C packages/eyelet-ui dev",
+		"build": "pnpm -C packages/eyelet-ui build",
+		"preview": "pnpm -C packages/eyelet-ui preview",
+		"compile": "pnpm -C packages/eyelet-ui compile",
+		"lint": "pnpm -C packages/eyelet-ui lint",
+		"changelog": "pnpm -C packages/eyelet-ui changelog",
+		"release": "pnpm compile && pnpm -C packages/eyelet-ui release ",
+		"test": "pnpm -C packages/eyelet-ui jest",
+		"test:watch": "pnpm -C packages/eyelet-ui jest -w",
+		"test:watchAll": "pnpm -C packages/eyelet-ui jest -wa",
+		"create:comp": "pnpm -C packages/eyelet-ui create"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@eyelet/eslint-config": "workspace:1.0.0",
+		"@eyelet/stylelint-config": "workspace:1.0.0",
+		"cz-customizable": "^7.0.0",
+		"eslint": "^7.32.0",
+		"prettier": "^2.8.4",
+		"stylelint": "15.2.0",
+		"typescript": "^4.9.5"
+	},
+	"config": {
+		"commitizen": {
+			"path": "node_modules/cz-customizable"
+		}
+	},
+	"eslintConfig": {
+		"root": true,
+		"ignorePatterns": [
+			"packages/eyelet-ui/lib/**",
+			"packages/eyelet-ui/es/**",
+			"packages/eyelet-ui/umd/**",
+			"packages/eyelet-ui/site/**",
+			"packages/eyelet-ui/public/**",
+			"packages/eyelet-ui/coverage/**",
+			"packages/eyelet-ui/highlight/**",
+			"packages/eyelet-ui/types/index.d.ts",
+			"packages/eyelet-ui/src/*/__tests__/**",
+			"packages/eyelet-ui/.varlet/**"
+		],
+		"extends": [
+			"@eyelet"
+		]
+	},
+	"stylelint": {
+		"extends": [
+			"@eyelet/stylelint-config"
+		],
+		"ignoreFiles": [
+			"packages/eyelet-ui/lib/**",
+			"packages/eyelet-ui/es/**",
+			"packages/eyelet-ui/umd/**",
+			"packages/eyelet-ui/site/**",
+			"packages/eyelet-ui/coverage/**",
+			"packages/eyelet-ui/highlight/**",
+			"packages/eyelet-ui/public/**",
+			"packages/eyelet-ui/.varlet/**"
+		]
+	}
+}

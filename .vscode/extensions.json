@@ -1,0 +1,11 @@
+// 统一检测插件
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "usernamehw.errorlens",
+    "DavidAnson.vscode-markdownlint",
+    "haoziqaq.varlet-vscode-extension"
+  ]
+}
