@@ -3,5 +3,6 @@
 </script>
 
 <template>
-	<zm-button color="#03A9F4">起步</zm-button>
+	<zm-button color="#B00F0F">起步</zm-button>
+	<zm-button color="#F35918">起步</zm-button>
 </template>

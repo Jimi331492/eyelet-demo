@@ -1,14 +1,27 @@
 .zm-button {
 	display: flex;
-	padding: 10px;
-	background: #3a7afe;
+	align-items: center;
+	justify-content: center;
+	width: 335px;
+	height: 88px;
+	margin: 0;
+	padding: 0;
 	color: #fff;
 	outline: none;
-	border: none;
-	border-radius: 2px;
 	cursor: pointer;
-
+	background: #286fff;
+	border-radius: 16px;
+	border: 2px solid transparent;
 	&:active {
 		opacity: 0.9;
+	}
+
+	&.small {
+		width: 152px;
+	}
+
+	&.large {
+		width: 686px;
+		height: 96px;
 	}
 }

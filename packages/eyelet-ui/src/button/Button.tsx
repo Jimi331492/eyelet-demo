@@ -1,27 +1,21 @@
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
+import { createNamespace } from '../utils/components';
+import { props } from './props';
 import './button.less';
+
+const { n, classes } = createNamespace('button');
 
 export default defineComponent({
 	name: 'ZmButton',
-	props: {
-		// eslint-disable-next-line vue/require-default-prop
-		color: {
-			type: String,
-		},
-		// eslint-disable-next-line vue/require-default-prop
-		onClick: {
-			// eslint-disable-next-line no-unused-vars
-			type: Function as PropType<(e: Event) => void>,
-		},
-	},
+	props,
 	setup(props, { slots }) {
 		const handleClick = (e: Event) => props.onClick?.(e);
 
 		return () => {
-			const { color } = props;
+			const { color, size } = props;
 
 			return (
-				<button class="zm-button" style={{ background: color }} onClick={handleClick}>
+				<button class={classes(n(), size)} style={{ background: color }} onClick={handleClick}>
 					{slots.default?.()}
 				</button>
 			);

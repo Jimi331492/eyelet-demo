@@ -1,7 +1,7 @@
 import { defineListenerProp } from '../utils/components';
 import type { PropType } from 'vue';
 
-function mdoeValidator(mode: string): boolean {
+function modeValidator(mode: string): boolean {
 	return ['center', 'bottom'].includes(mode);
 }
 
@@ -10,7 +10,7 @@ export const props = {
 		type: String as PropType<'center' | 'bottom'>,
 		require: true,
 		default: 'center',
-		validator: mdoeValidator,
+		validator: modeValidator,
 	},
 	className: { type: String, default: '' },
 	visible: { type: Boolean, require: true, default: false },

@@ -46,6 +46,7 @@ importers:
 
   packages/eyelet-ui:
     specifiers:
+      '@types/node': ^18.14.6
       '@varlet/cli': ^2.8.4
       '@varlet/icons': ^2.8.4
       '@varlet/shared': ^2.8.4
@@ -66,7 +67,8 @@ importers:
       vue-eslint-parser: ^9.1.0
       vue-router: 4.0.12
     devDependencies:
-      '@varlet/cli': 2.8.6_ley5nfcoqwkz6gvxusqotws66i
+      '@types/node': 18.14.6
+      '@varlet/cli': 2.8.6_yg65qmws6yoll25p4cghaffiaa
       '@varlet/icons': 2.8.6
       '@varlet/shared': 2.8.6
       '@varlet/touch-emulator': 2.8.6
@@ -2099,7 +2101,7 @@ packages:
       eslint-visitor-keys: 2.1.0
     dev: false
 
-  /@varlet/cli/2.8.6_ley5nfcoqwkz6gvxusqotws66i:
+  /@varlet/cli/2.8.6_yg65qmws6yoll25p4cghaffiaa:
     resolution: {integrity: sha512-Knxm1MhvvF1Aur16wdjh8Fa4VEHc2Dkbne322rkOJoMcolXuoocMqM/8+TS6Jbe2Zv79hYdo6hnwHSj5nKu7SQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -2149,7 +2151,7 @@ packages:
       slash: 3.0.0
       ts-jest: 26.5.6_xuote2qreek47x2di7kesslrai
       typescript: 4.9.5
-      vite: 4.0.4_less@3.13.1
+      vite: 4.0.4_viheytchy3b6whfqmshz6niosq
       vue: 3.2.25
       vue-jest: 5.0.0-alpha.10_rt4qjockcmbvppq6jase7gqcau
       vue-router: 4.0.12_vue@3.2.25
@@ -2199,7 +2201,7 @@ packages:
       '@babel/core': 7.21.0
       '@babel/plugin-transform-typescript': 7.21.0_@babel+core@7.21.0
       '@vue/babel-plugin-jsx': 1.1.1_@babel+core@7.21.0
-      vite: 4.0.4_less@3.13.1
+      vite: 4.0.4_viheytchy3b6whfqmshz6niosq
       vue: 3.2.25
     transitivePeerDependencies:
       - supports-color
@@ -2212,7 +2214,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.0.4_less@3.13.1
+      vite: 4.0.4_viheytchy3b6whfqmshz6niosq
       vue: 3.2.25
     dev: true
 
@@ -9144,7 +9146,7 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vite/4.0.4_less@3.13.1:
+  /vite/4.0.4_viheytchy3b6whfqmshz6niosq:
     resolution: {integrity: sha512-xevPU7M8FU0i/80DMR+YhgrzR5KS2ORy1B4xcX/cXLsvnUWvfHuqMmVU6N0YiJ4JWGRJJsLCgjEzKjG9/GKoSw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -9169,6 +9171,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 18.14.6
       esbuild: 0.16.17
       less: 3.13.1
       postcss: 8.4.21

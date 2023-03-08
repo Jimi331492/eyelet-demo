@@ -31,6 +31,21 @@ export default [
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/dialog/docs/zh-CN.md')
       },
       {
+        path: '/en-US/space',
+        // @ts-ignore
+        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/space/docs/en-US.md')
+      },
+      {
+        path: '/en-US/styles',
+        // @ts-ignore
+        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/styles/docs/en-US.md')
+      },
+      {
+        path: '/zh-CN/styles',
+        // @ts-ignore
+        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/styles/docs/zh-CN.md')
+      },
+      {
         path: '/zh-CN/home',
         // @ts-ignore
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/docs/home.zh-CN.md')
