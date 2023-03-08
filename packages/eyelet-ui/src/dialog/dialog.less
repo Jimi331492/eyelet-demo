@@ -65,7 +65,7 @@
 		left: 50%;
 		transform: translate(-50%, -50%);
 		overflow: scroll;
-		border-radius: calc(24px / 2);
+		border-radius: 24px;
 		background-color: rgb(255 255 255);
 		color: #000;
 		animation: ani-opacity-in 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) both;
@@ -81,20 +81,20 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			margin: calc(16px / 2) calc(16px / 2) 0 0;
-			width: calc(80px / 2);
-			height: calc(80px / 2);
+			margin: 16px 16px 0 0;
+			width: 80px;
+			height: 80px;
 
 			.icon-close {
-				font-size: calc(24px / 2);
+				font-size: 24px;
 			}
 		}
 
 		&--content {
-			padding: calc(48px / 2) calc(32px / 2) calc(32px / 2);
-			min-width: calc(568px / 2);
-			max-width: calc(718px / 2);
-			min-height: calc(276px / 2);
+			padding: 48px 32px 32px;
+			min-width: 568px;
+			max-width: 718px;
+			min-height: 276px;
 			box-sizing: border-box;
 
 			&.no-padding {
@@ -109,9 +109,9 @@
 		left: 0;
 		overflow: scroll;
 		width: 100%;
-		border-radius: calc(24px / 2) calc(24px / 2) 0 0;
+		border-radius: 24px 24px 0 0;
 		background-color: rgb(255 255 255);
-    color: #000;
+		color: #000;
 		animation: ani-slide-bottom-in 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
 		&.remove {
@@ -125,19 +125,19 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			margin: calc(16px / 2) calc(16px / 2) 0 0;
-			width: calc(80px / 2);
-			height: calc(80px / 2);
+			margin: 16px 16px 0 0;
+			width: 80px;
+			height: 80px;
 
 			.icon-close {
-				font-size: calc(24px / 2);
+				font-size: 24px;
 			}
 		}
 
 		&--content {
 			box-sizing: border-box;
-			padding: calc(32px / 2);
-			min-height: calc(232px / 2);
+			padding: 32px;
+			min-height: 232px;
 			max-height: calc(100vh - var(--nav-bar-height));
 
 			&.no-padding {

@@ -1,9 +1,12 @@
 import { defineConfig } from '@varlet/cli';
 
 export default defineConfig({
+	name: 'Eyelet',
+	title: 'Eyelet',
 	logo: './logo.svg',
 	useMobile: true,
 	namespace: 'zm',
+	host: "localhost",
 	port: 8001,
 	defaultLanguage: 'zh-CN',
 	highlight: {
@@ -17,7 +20,102 @@ export default defineConfig({
 	},
 	pc: {
 		redirect: '/index',
+		title: {
+			'zh-CN': '窄门餐眼组件库｜Eyelet',
+			'en-US': 'Material design mobile components built for Vue3',
+		},
+		indexPage: {
+			description: {
+				'zh-CN': '窄门餐眼组件库demo，基于Varlet构建。',
+				'en-US':
+					'Varlet is a Material design mobile component library developed based on Vue3, developed and maintained by partners in the community. Support Typescript, import on demand, dark mode, theme customization, internationalization, and provide VSCode plugin to ensure a good development experience',
+			},
+			started: {
+				'zh-CN': '起步',
+				'en-US': 'GET STARTED',
+			},
+			features: [
+				{
+					name: {
+						'zh-CN': '窄门餐眼',
+						'en-US': null,
+					},
+					description: {
+						'zh-CN': '文档即将更新...',
+						'en-US': null,
+					},
+				},
+				{
+					name: {
+						'zh-CN': '窄门供应链',
+						'en-US': null,
+					},
+					description: {
+						'zh-CN': '文档即将更新...',
+						'en-US': null,
+					},
+				},
+				{
+					name: {
+						'zh-CN': '番茄资本',
+						'en-US': null,
+					},
+					description: {
+						'zh-CN': '文档即将更新...',
+						'en-US': null,
+					},
+				},
+				{
+					name: {
+						'zh-CN': '窄门学社',
+						'en-US': null,
+					},
+					description: {
+						'zh-CN': '文档即将更新...',
+						'en-US': null,
+					},
+				},
+				{
+					name: {
+						'zh-CN': '靠谱餐',
+						'en-US': null,
+					},
+					description: {
+						'zh-CN': '文档即将更新...',
+						'en-US': null,
+					},
+				},
+				{
+					name: {
+						'zh-CN': '敬请期待...',
+						'en-US': null,
+					},
+					description: {
+						'zh-CN': '文档即将更新...',
+						'en-US': null,
+					},
+				},
+			],
+			contributors:null,
+			// contributors: {
+			// 	label: {
+			// 		'zh-CN': '团队成员',
+			// 		'en-US': 'Contributors',
+			// 	},
+			// 	link: 'https://github.com/kaoputou/Uther/graphs/contributors',
+			// 	image: null,
+			// },
+			license: {
+				'zh-CN': '组件库基于 MIT 协议，您可以自由的使用和分享',
+				'en-US': 'Released under the MIT License, You can use and share freely.',
+			},
+			copyright: {
+				'zh-CN': 'Copyright © 2022 varletjs 组织成员以及 varlet 的贡献者们',
+				'en-US': 'Copyright © 2022 varletjs member and varlet contributors.',
+			},
+		},
 		header: {
+			github: 'https://github.com/Jimi331492/eyelet-demo',
 			darkMode: true,
 			i18n: null,
 			playground: null,
@@ -69,17 +167,17 @@ export default defineConfig({
 	mobile: {
 		redirect: '/home',
 		title: {
-			'zh-CN': '面向 Vue3 的 Material 风格移动端组件库',
+			'zh-CN': 'Eyelet 面向 Vue3 的 Material 风格移动端组件库',
 			'en-US': 'Material design mobile components built for Vue3',
 		},
 		header: {
 			i18n: null,
-			github: 'https://github.com/varletjs/varlet',
+			github: 'https://github.com/Jimi331492/eyelet-demo',
 			darkMode: true,
 		},
 	},
 	themeKey: 'VARLET_THEME',
-	lightTheme: {
+	darkTheme: {
 		'color-body': '#fff',
 		'color-index-page-background': '#f2f2f2',
 		'color-index-page-feature-background': '#fff',
@@ -120,7 +218,7 @@ export default defineConfig({
 		'color-hl-group-h': '#06a6e9',
 		'color-hl-group-i': '#f23733',
 	},
-	darkTheme: {
+	lightTheme: {
 		'color-body': '#121212',
 		'color-index-page-background': '#1e1e1e',
 		'color-index-page-feature-background': '#303030',
