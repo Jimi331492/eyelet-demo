@@ -5,10 +5,16 @@ module.exports = {
 		{ value: 'refactor', name: '🛠   refactor:       代码重构，注意和特性、重构区分开' },
 		{ value: 'docs', name: '📚  docs:           变更文档或注释' },
 		{ value: 'test', name: '🏁  test:           修改或添加测试文件' },
-		{ value: 'config', name: '📝  config:         修改或添加配置文件：prettier.config.js、 .gitignore等' },
+		{
+			value: 'config',
+			name: '📝  config:         修改或添加配置文件：prettier.config.js、 .gitignore等',
+		},
 		{ value: 'style', name: '💅  style:          修改格式，不影响功能，例如空格、代码格式等' },
 		{ value: 'revert', name: '⏪  revert:         回退版本' },
-		{ value: 'chore', name: '🗯   chore:          杂务，不属于以上类型，例如run build、引入或更新软件包等' },
+		{
+			value: 'chore',
+			name: '🗯   chore:          杂务，不属于以上类型，例如run build、引入或更新软件包等',
+		},
 	],
 	messages: {
 		type: '选择一种你的提交类型:',

@@ -6,14 +6,14 @@ export default defineConfig({
 	logo: './logo.svg',
 	useMobile: true,
 	namespace: 'zm',
-	host: "localhost",
+	host: 'localhost',
 	port: 8001,
 	defaultLanguage: 'zh-CN',
 	highlight: {
 		/**
 		 * @see https://highlightjs.org/
 		 */
-		style: '//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/nord.min.css',
+		style: null,
 	},
 	analysis: {
 		baidu: '',
@@ -96,7 +96,7 @@ export default defineConfig({
 					},
 				},
 			],
-			contributors:null,
+			contributors: null,
 			// contributors: {
 			// 	label: {
 			// 		'zh-CN': '团队成员',
@@ -142,6 +142,13 @@ export default defineConfig({
 			},
 			{
 				text: {
+					'zh-CN': 'Icon 图标',
+				},
+				doc: 'icon',
+				type: 2,
+			},
+			{
+				text: {
 					'zh-CN': 'Button 按钮',
 				},
 				doc: 'button',
@@ -176,12 +183,21 @@ export default defineConfig({
 			darkMode: true,
 		},
 	},
+	icons: {
+		name: 'eyelet-icons',
+		namespace: 'zm-icon',
+		fontStyle: 'normal',
+		fontWeight: 'normal',
+		fontFamilyClassName: 'zm-icon--set',
+		base64: true,
+	},
 	themeKey: 'VARLET_THEME',
 	darkTheme: {
 		'color-body': '#fff',
 		'color-index-page-background': '#f2f2f2',
 		'color-index-page-feature-background': '#fff',
-		'color-index-page-logo-mask-background': 'linear-gradient(-45deg, #8baff8 50%, #84e0ff 50%)',
+		'color-index-page-logo-mask-background':
+			'linear-gradient(-45deg, #8baff8 50%, #84e0ff 50%)',
 		'color-index-page-second-text-color': 'rgba(60, 60, 60, .7)',
 		'color-index-page-divider-color': '#ddd',
 		'color-bar': '#fff',
@@ -222,7 +238,8 @@ export default defineConfig({
 		'color-body': '#121212',
 		'color-index-page-background': '#1e1e1e',
 		'color-index-page-feature-background': '#303030',
-		'color-index-page-logo-mask-background': 'linear-gradient(-45deg, #729dfc 50%, #6859f4 50%)',
+		'color-index-page-logo-mask-background':
+			'linear-gradient(-45deg, #729dfc 50%, #6859f4 50%)',
 		'color-index-page-second-text-color': 'rgba(255, 255, 255, .75)',
 		'color-index-page-divider-color': 'rgba(84, 84, 84, .8)',
 		'color-bar': '#1e1e1e',
@@ -258,13 +275,5 @@ export default defineConfig({
 		'color-hl-group-g': '#ff7b1e',
 		'color-hl-group-h': '#14a6e9',
 		'color-hl-group-i': '#ed4648',
-	},
-	icons: {
-		name: 'varlet-icons',
-		namespace: 'var-icon',
-		fontStyle: 'normal',
-		fontWeight: 'normal',
-		fontFamilyClassName: 'var-icon--set',
-		base64: true,
 	},
 });

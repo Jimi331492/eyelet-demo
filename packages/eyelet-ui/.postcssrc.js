@@ -28,7 +28,12 @@ module.exports = () => {
 				fontViewportUnit: 'vw', // 字体使用的视口单位
 				selectorBlackList: [], // 选择黑名单
 				propList: ['*'],
-				exclude: [/site\/components\//, /site\/pc/, /src\/row\/example\/Responsive.vue/, /src\/row\/example\/ResponsiveObject.vue/],
+				exclude: [
+					/site\/components\//,
+					/site\/pc/,
+					/src\/row\/example\/Responsive.vue/,
+					/src\/row\/example\/ResponsiveObject.vue/,
+				],
 				include: [/site\/mobile/],
 			}),
 		];

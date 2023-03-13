@@ -1,7 +1,7 @@
 module.exports = {
 	extends: ['stylelint-config-standard', 'stylelint-config-prettier'],
 	rules: {
-		'no-invalid-double-slash-comments': null,
+		'selector-class-pattern': null,
 		'no-descending-specificity': null,
 	},
 };

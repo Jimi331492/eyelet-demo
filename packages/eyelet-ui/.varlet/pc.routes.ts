@@ -31,9 +31,29 @@ export default [
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/dialog/docs/zh-CN.md')
       },
       {
+        path: '/zh-CN/icon',
+        // @ts-ignore
+        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/icon/docs/zh-CN.md')
+      },
+      {
+        path: '/en-US/snackbar',
+        // @ts-ignore
+        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/snackbar/docs/en-US.md')
+      },
+      {
+        path: '/zh-CN/snackbar',
+        // @ts-ignore
+        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/snackbar/docs/zh-CN.md')
+      },
+      {
         path: '/en-US/space',
         // @ts-ignore
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/space/docs/en-US.md')
+      },
+      {
+        path: '/zh-CN/style-provider',
+        // @ts-ignore
+        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/style-provider/docs/zh-CN.md')
       },
       {
         path: '/en-US/styles',
@@ -44,6 +64,11 @@ export default [
         path: '/zh-CN/styles',
         // @ts-ignore
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/styles/docs/zh-CN.md')
+      },
+      {
+        path: '/zh-CN/themes',
+        // @ts-ignore
+        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/themes/docs/zh-CN.md')
       },
       {
         path: '/zh-CN/home',

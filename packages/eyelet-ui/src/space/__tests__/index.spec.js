@@ -1,163 +1,167 @@
-import ZmSpace from '../Space'
-import Space from '..'
-import { computeMargin } from '../margin'
-import { mount } from '@vue/test-utils'
-import { createApp, Fragment, h } from 'vue'
+import ZmSpace from '../Space';
+import Space from '..';
+import { computeMargin } from '../margin';
+import { mount } from '@vue/test-utils';
+import { createApp, Fragment, h } from 'vue';
 
 test('test space use', () => {
-  const app = createApp({}).use(Space)
-  expect(app.component(Space.name)).toBeTruthy()
-})
+	const app = createApp({}).use(Space);
+	expect(app.component(Space.name)).toBeTruthy();
+});
 
 describe('test space component props', () => {
-  test('test space align', () => {
-    ;['stretch', 'center', 'start', 'end', 'baseline'].forEach((align) => {
-      const wrapper = mount(ZmSpace, {
-        props: { align },
-      })
+	test('test space align', () => {
+		['stretch', 'center', 'start', 'end', 'baseline'].forEach(align => {
+			const wrapper = mount(ZmSpace, {
+				props: { align },
+			});
 
-      expect(wrapper.find('.zm-space').attributes('style')).toContain(
-        'align-items: ' + (align === 'start' || align === 'end' ? `flex-${align}` : align)
-      )
-      wrapper.unmount()
-    })
-  })
+			expect(wrapper.find('.zm-space').attributes('style')).toContain(
+				'align-items: ' + (align === 'start' || align === 'end' ? `flex-${align}` : align),
+			);
+			wrapper.unmount();
+		});
+	});
 
-  test('test space justify', () => {
-    ;['start', 'end', 'center', 'space-around', 'space-between'].forEach((justify) => {
-      const wrapper = mount(ZmSpace, {
-        props: { justify },
-        slots: {
-          default: () => h(Fragment, [h('div', 'child'), h('div', 'child'), h('div', 'child')]),
-        },
-      })
+	test('test space justify', () => {
+		['start', 'end', 'center', 'space-around', 'space-between'].forEach(justify => {
+			const wrapper = mount(ZmSpace, {
+				props: { justify },
+				slots: {
+					default: () =>
+						h(Fragment, [h('div', 'child'), h('div', 'child'), h('div', 'child')]),
+				},
+			});
 
-      expect(wrapper.find('.zm-space').attributes('style')).toContain(
-        'justify-content: ' + (justify === 'start' || justify === 'end' ? `flex-${justify}` : justify)
-      )
-      wrapper.unmount()
-    })
-  })
+			expect(wrapper.find('.zm-space').attributes('style')).toContain(
+				'justify-content: ' +
+					(justify === 'start' || justify === 'end' ? `flex-${justify}` : justify),
+			);
+			wrapper.unmount();
+		});
+	});
 
-  test('test space wrap', async () => {
-    const wrapper = mount(ZmSpace, {
-      props: {
-        wrap: true,
-      },
-    })
+	test('test space wrap', async () => {
+		const wrapper = mount(ZmSpace, {
+			props: {
+				wrap: true,
+			},
+		});
 
-    expect(wrapper.find('.zm-space').attributes('style')).toContain('flex-wrap: wrap;')
-    await wrapper.setProps({ wrap: false })
-    expect(wrapper.find('.zm-space').attributes('style')).toContain('flex-wrap: nowrap;')
-    wrapper.unmount()
-  })
+		expect(wrapper.find('.zm-space').attributes('style')).toContain('flex-wrap: wrap;');
+		await wrapper.setProps({ wrap: false });
+		expect(wrapper.find('.zm-space').attributes('style')).toContain('flex-wrap: nowrap;');
+		wrapper.unmount();
+	});
 
-  test('test space direction', async () => {
-    const wrapper = mount(ZmSpace, {
-      props: {
-        direction: 'row',
-      },
-    })
+	test('test space direction', async () => {
+		const wrapper = mount(ZmSpace, {
+			props: {
+				direction: 'row',
+			},
+		});
 
-    expect(wrapper.find('.zm-space').attributes('style')).toContain('flex-direction: row;')
-    await wrapper.setProps({ direction: 'column' })
-    expect(wrapper.find('.zm-space').attributes('style')).toContain('flex-direction: column;')
-    wrapper.unmount()
-  })
+		expect(wrapper.find('.zm-space').attributes('style')).toContain('flex-direction: row;');
+		await wrapper.setProps({ direction: 'column' });
+		expect(wrapper.find('.zm-space').attributes('style')).toContain('flex-direction: column;');
+		wrapper.unmount();
+	});
 
-  test('test space inline', async () => {
-    const wrapper = mount(ZmSpace, {
-      props: {
-        inline: true,
-      },
-    })
+	test('test space inline', async () => {
+		const wrapper = mount(ZmSpace, {
+			props: {
+				inline: true,
+			},
+		});
 
-    expect(wrapper.find('.zm-space--inline').exists()).toBe(true)
-    await wrapper.setProps({ inline: false })
-    expect(wrapper.find('.zm-space--inline').exists()).toBe(false)
-    wrapper.unmount()
-  })
-})
+		expect(wrapper.find('.zm-space--inline').exists()).toBe(true);
+		await wrapper.setProps({ inline: false });
+		expect(wrapper.find('.zm-space--inline').exists()).toBe(false);
+		wrapper.unmount();
+	});
+});
 
 test('test space default slots', () => {
-  const wrapper = mount(ZmSpace, {
-    slots: {
-      default: 'This is default slots',
-    },
-  })
+	const wrapper = mount(ZmSpace, {
+		slots: {
+			default: 'This is default slots',
+		},
+	});
 
-  expect(wrapper.find('.zm-space').html()).toContain('This is default slots')
-  wrapper.unmount()
-})
+	expect(wrapper.find('.zm-space').html()).toContain('This is default slots');
+	wrapper.unmount();
+});
 
 test('test computeMargin func returns', () => {
-  expect(
-    computeMargin('zm(--space-size-mini-y)', 'zm(--space-size-mini-x)', {
-      direction: 'row',
-      justify: 'center',
-      index: 0,
-      lastIndex: 1,
-    })
-  ).toBe('calc(zm(--space-size-mini-y) / 2) zm(--space-size-mini-x) calc(zm(--space-size-mini-y) / 2) 0')
+	expect(
+		computeMargin('zm(--space-size-mini-y)', 'zm(--space-size-mini-x)', {
+			direction: 'row',
+			justify: 'center',
+			index: 0,
+			lastIndex: 1,
+		}),
+	).toBe(
+		'calc(zm(--space-size-mini-y) / 2) zm(--space-size-mini-x) calc(zm(--space-size-mini-y) / 2) 0',
+	);
 
-  expect(
-    computeMargin('zm(--space-size-mini-y)', 'zm(--space-size-mini-x)', {
-      direction: 'row',
-      justify: 'center',
-      index: 1,
-      lastIndex: 1,
-    })
-  ).toBe('calc(zm(--space-size-mini-y) / 2) 0')
+	expect(
+		computeMargin('zm(--space-size-mini-y)', 'zm(--space-size-mini-x)', {
+			direction: 'row',
+			justify: 'center',
+			index: 1,
+			lastIndex: 1,
+		}),
+	).toBe('calc(zm(--space-size-mini-y) / 2) 0');
 
-  expect(
-    computeMargin('20px', '20px', {
-      direction: 'row',
-      justify: 'space-around',
-      index: 0,
-      lastIndex: 1,
-    })
-  ).toBe('calc(20px / 2) calc(20px / 2)')
+	expect(
+		computeMargin('20px', '20px', {
+			direction: 'row',
+			justify: 'space-around',
+			index: 0,
+			lastIndex: 1,
+		}),
+	).toBe('calc(20px / 2) calc(20px / 2)');
 
-  expect(
-    computeMargin('20px', '20px', {
-      direction: 'row',
-      justify: 'space-between',
-      index: 0,
-      lastIndex: 2,
-    })
-  ).toBe('calc(20px / 2) calc(20px / 2) calc(20px / 2) 0')
+	expect(
+		computeMargin('20px', '20px', {
+			direction: 'row',
+			justify: 'space-between',
+			index: 0,
+			lastIndex: 2,
+		}),
+	).toBe('calc(20px / 2) calc(20px / 2) calc(20px / 2) 0');
 
-  expect(
-    computeMargin('20px', '20px', {
-      direction: 'row',
-      justify: 'space-between',
-      index: 2,
-      lastIndex: 2,
-    })
-  ).toBe('calc(20px / 2) 0 calc(20px / 2) calc(20px / 2)')
+	expect(
+		computeMargin('20px', '20px', {
+			direction: 'row',
+			justify: 'space-between',
+			index: 2,
+			lastIndex: 2,
+		}),
+	).toBe('calc(20px / 2) 0 calc(20px / 2) calc(20px / 2)');
 
-  expect(
-    computeMargin('20px', '20px', {
-      direction: 'row',
-      justify: 'space-between',
-      index: 1,
-      lastIndex: 2,
-    })
-  ).toBe('calc(20px / 2) calc(20px / 2)')
+	expect(
+		computeMargin('20px', '20px', {
+			direction: 'row',
+			justify: 'space-between',
+			index: 1,
+			lastIndex: 2,
+		}),
+	).toBe('calc(20px / 2) calc(20px / 2)');
 
-  expect(
-    computeMargin('20px', '20px', {
-      direction: 'column',
-      index: 0,
-      lastIndex: 1,
-    })
-  ).toBe('0 0 20px 0')
+	expect(
+		computeMargin('20px', '20px', {
+			direction: 'column',
+			index: 0,
+			lastIndex: 1,
+		}),
+	).toBe('0 0 20px 0');
 
-  expect(
-    computeMargin('20px', '20px', {
-      direction: 'column',
-      index: 1,
-      lastIndex: 1,
-    })
-  ).toBe('0')
-})
+	expect(
+		computeMargin('20px', '20px', {
+			direction: 'column',
+			index: 1,
+			lastIndex: 1,
+		}),
+	).toBe('0');
+});

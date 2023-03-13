@@ -7,7 +7,7 @@
   "logo": "./logo.svg",
   "defaultLanguage": "zh-CN",
   "highlight": {
-    "style": "//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/nord.min.css"
+    "style": null
   },
   "analysis": {
     "baidu": ""
@@ -33,6 +33,13 @@
           "zh-CN": "基础组件"
         },
         "type": 1
+      },
+      {
+        "text": {
+          "zh-CN": "Icon 图标"
+        },
+        "doc": "icon",
+        "type": 2
       },
       {
         "text": {
@@ -247,11 +254,11 @@
     "color-hl-group-i": "#f23733"
   },
   "icons": {
-    "name": "varlet-icons",
-    "namespace": "var-icon",
+    "name": "eyelet-icons",
+    "namespace": "zm-icon",
     "fontStyle": "normal",
     "fontWeight": "normal",
-    "fontFamilyClassName": "var-icon--set",
+    "fontFamilyClassName": "zm-icon--set",
     "base64": true
   }
 }

@@ -1,0 +1,115 @@
+:root {
+	--snackbar-width: 512px;
+	--snackbar-color: rgb(255 255 255 / 87%);
+	--snackbar-border-radius: 8px;
+	--snackbar-background: #333;
+	--snackbar-font-size: var(--font-size-md);
+	--snackbar-margin: 12px 48px;
+	--snackbar-border-color: currentcolor;
+	--snackbar-success-background: var(--color-success);
+	--snackbar-info-background: var(--color-info);
+	--snackbar-error-background: var(--color-danger);
+	--snackbar-warning-background: var(--color-warning);
+	--snackbar-content-padding: 24px 32px;
+	--snackbar-action-margin: 0 32px 0 0;
+}
+
+.zm-transition-group {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	pointer-events: none;
+}
+
+.zm-pointer-auto {
+	pointer-events: auto;
+}
+
+.zm-snackbar {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: all 0.15s var(--cubic-bezier);
+
+	&__transition {
+		top: 0;
+		position: fixed;
+
+		.zm-snackbar__wrapper {
+			position: absolute;
+
+			&-top {
+				top: 5%;
+			}
+
+			&-center {
+				top: 45%;
+			}
+
+			&-bottom {
+				bottom: 5%;
+			}
+		}
+	}
+
+	&__wrapper {
+		width: var(--snackbar-width);
+		display: flex;
+		border-radius: var(--snackbar-border-radius);
+		color: var(--snackbar-color);
+		background: var(--snackbar-background);
+		font-size: var(--snackbar-font-size);
+		margin: var(--snackbar-margin);
+		align-items: center;
+		border-color: var(--snackbar-border-color);
+		pointer-events: auto;
+		transition: 0.3s var(--cubic-bezier);
+
+		&-success {
+			background: var(--snackbar-success-background);
+		}
+
+		&-info {
+			background: var(--snackbar-info-background);
+		}
+
+		&-warning {
+			background: var(--snackbar-warning-background);
+		}
+
+		&-error {
+			background: var(--snackbar-error-background);
+		}
+	}
+
+	&__content {
+		flex-grow: 1;
+		padding: var(--snackbar-content-padding);
+	}
+
+	&__action {
+		margin: var(--snackbar-action-margin);
+		display: flex;
+	}
+
+	&__vertical {
+		flex-direction: column;
+		align-items: flex-start;
+
+		.zm-snackbar__action {
+			align-self: flex-end;
+			margin-bottom: 16px;
+		}
+	}
+
+	&-fade-enter-from,
+	&-fade-leave-to {
+		opacity: 0;
+		transform: translateY(-60px);
+	}
+}

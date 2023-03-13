@@ -1,5 +1,5 @@
 module.exports = {
-	printWidth: 150, // 超过最大值换行
+	printWidth: 100, // 超过最大值换行
 	tabWidth: 4, // 缩进字节数
 	useTabs: true, // 缩进是否使用tab，
 	semi: true, // 句尾添加分号

@@ -15,7 +15,11 @@ export default defineComponent({
 			const { color, size } = props;
 
 			return (
-				<button class={classes(n(), size)} style={{ background: color }} onClick={handleClick}>
+				<button
+					class={classes(n(), size)}
+					style={{ background: color }}
+					onClick={handleClick}
+				>
 					{slots.default?.()}
 				</button>
 			);

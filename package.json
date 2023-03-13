@@ -6,9 +6,10 @@
 	"scripts": {
 		"dev": "pnpm -C packages/eyelet-ui dev",
 		"build": "pnpm -C packages/eyelet-ui build",
+		"build:icons": "pnpm -C packages/eyelet-icons build",
 		"preview": "pnpm -C packages/eyelet-ui preview",
 		"compile": "pnpm -C packages/eyelet-ui compile",
-		"lint": "pnpm -C packages/eyelet-ui lint",
+		"lint": "varlet-cli lint",
 		"changelog": "pnpm -C packages/eyelet-ui changelog",
 		"release": "pnpm compile && pnpm -C packages/eyelet-ui release ",
 		"test": "pnpm -C packages/eyelet-ui jest",
@@ -36,6 +37,7 @@
 	"eslintConfig": {
 		"root": true,
 		"ignorePatterns": [
+			"packages/eyelet-icons/dist/**",
 			"packages/eyelet-ui/lib/**",
 			"packages/eyelet-ui/es/**",
 			"packages/eyelet-ui/umd/**",
@@ -56,6 +58,7 @@
 			"@eyelet/stylelint-config"
 		],
 		"ignoreFiles": [
+			"packages/eyelet-icons/dist/**",
 			"packages/eyelet-ui/lib/**",
 			"packages/eyelet-ui/es/**",
 			"packages/eyelet-ui/umd/**",

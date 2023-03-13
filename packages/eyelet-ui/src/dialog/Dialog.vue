@@ -1,19 +1,32 @@
 <template>
 	<div v-if="_visible" class="zm-dialog">
-		<div v-if="mask" :class="['zm-dialog__mask', { remove: hideAnimation }]" @click="handleClose" />
+		<div
+			v-if="mask"
+			:class="['zm-dialog__mask', { remove: hideAnimation }]"
+			@click="handleClose"
+		/>
 		<div :class="[classnames[mode] || 'zm-dialog__normal-body', { remove: hideAnimation }]">
 			<div v-if="closable" class="close" @click="handleClose">
 				<span class="icomoon icon-close" />
 			</div>
 			<div
 				v-if="mode === 'bottom'"
-				:class="['zm-dialog__bottom-body--content', noPadding && 'no-padding', true && 'iphonex', className ? className.split(' ') : []]"
+				:class="[
+					'zm-dialog__bottom-body--content',
+					noPadding && 'no-padding',
+					true && 'iphonex',
+					className ? className.split(' ') : [],
+				]"
 			>
 				<slot />
 			</div>
 			<div
 				v-else-if="mode === 'center'"
-				:class="['zm-dialog__normal-body--content', noPadding && 'no-padding', className ? className.split(' ') : []]"
+				:class="[
+					'zm-dialog__normal-body--content',
+					noPadding && 'no-padding',
+					className ? className.split(' ') : [],
+				]"
 			>
 				<slot />
 			</div>
