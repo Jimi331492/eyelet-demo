@@ -2,10 +2,10 @@
 	<teleport :to="teleport" :disabled="disabled">
 		<transition :name="`${n()}-fade`" @after-enter="onOpened" @after-leave="onClosed">
 			<zm-snackbar-core v-bind="$props" :class="n('transition')">
-				<slot>{{ content }}s</slot>
 				<template #action>
 					<slot name="action" />
 				</template>
+				<slot>{{ content }}</slot>
 			</zm-snackbar-core>
 		</transition>
 	</teleport>

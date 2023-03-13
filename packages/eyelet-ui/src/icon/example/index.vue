@@ -22,7 +22,7 @@
 		});
 
 		clipboard.on('success', e => {
-			Snackbar.success(`${e.text}复制成功!`);
+			Snackbar.info({ content: `${e.text}复制成功!`, position: 'bottom' });
 		});
 	});
 
@@ -52,7 +52,7 @@
 		class="icon-example__animation-icon"
 		name="zm-logo"
 		color="#2979ff"
-		@click="() => Snackbar.success('点击成功')"
+		@click="() => Snackbar.loading({ content: '点击成功', position: 'bottom' })"
 	/>
 
 	<app-type>切换动画</app-type>

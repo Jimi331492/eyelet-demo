@@ -1,17 +1,20 @@
 :root {
 	--snackbar-width: 512px;
-	--snackbar-color: rgb(255 255 255 / 87%);
+	--snackbar-max-width: 686px;
+	--snackbar-min-width: 176px;
+	--snackbar-color: rgb(255 255 255);
 	--snackbar-border-radius: 8px;
-	--snackbar-background: #333;
+	--snackbar-background: rgba(50 50 51 / 0.7);
 	--snackbar-font-size: var(--font-size-md);
+	--snackbar-font-weight: 500;
 	--snackbar-margin: 12px 48px;
 	--snackbar-border-color: currentcolor;
 	--snackbar-success-background: var(--color-success);
 	--snackbar-info-background: var(--color-info);
 	--snackbar-error-background: var(--color-danger);
 	--snackbar-warning-background: var(--color-warning);
-	--snackbar-content-padding: 24px 32px;
-	--snackbar-action-margin: 0 32px 0 0;
+	--snackbar-content-padding: 16px 32px;
+	--snackbar-action-margin: 0 8px 0 0;
 }
 
 .zm-transition-group {
@@ -58,12 +61,14 @@
 	}
 
 	&__wrapper {
-		width: var(--snackbar-width);
+		max-width: var(--snackbar-max-width);
+		min-width: var(--snackbar-min-width);
 		display: flex;
 		border-radius: var(--snackbar-border-radius);
 		color: var(--snackbar-color);
 		background: var(--snackbar-background);
 		font-size: var(--snackbar-font-size);
+		font-weight: var(--snackbar-font-weight);
 		margin: var(--snackbar-margin);
 		align-items: center;
 		border-color: var(--snackbar-border-color);
@@ -88,13 +93,15 @@
 	}
 
 	&__content {
+		display: flex;
+		align-items: center;
 		flex-grow: 1;
 		padding: var(--snackbar-content-padding);
-	}
 
-	&__action {
-		margin: var(--snackbar-action-margin);
-		display: flex;
+		&--action {
+			margin: var(--snackbar-action-margin);
+			display: flex;
+		}
 	}
 
 	&__vertical {

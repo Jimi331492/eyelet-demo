@@ -3,5 +3,7 @@ module.exports = {
 	rules: {
 		'selector-class-pattern': null,
 		'no-descending-specificity': null,
+		'alpha-value-notation': null,
+		'value-keyword-case': null,
 	},
 };

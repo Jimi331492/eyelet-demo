@@ -17,11 +17,11 @@
 			:style="{ zIndex }"
 		>
 			<div :class="[n('content'), contentClass]">
+				<div :class="n('content--action')">
+					<zm-icon v-if="iconName" :name="iconName" :size="12"/>
+					<slot name="action" />
+				</div>
 				<slot>{{ content }}</slot>
-			</div>
-			<div :class="n('action')">
-				<zm-icon v-if="iconName" :name="iconName" />
-				<slot name="action" />
 			</div>
 		</div>
 	</div>
@@ -41,11 +41,11 @@
 	const { n, classes } = createNamespace('snackbar');
 
 	const ICON_TYPE_DICT: Record<SnackbarType, string> = {
-		success: 'zm-logo',
-		warning: 'zm-logo',
-		info: 'zm-logo',
-		error: 'zm-logo',
-		loading: '',
+		success: 'select',
+		warning: 'select',
+		info: 'select',
+		error: 'select',
+		loading: 'select',
 	};
 
 	export default defineComponent({
