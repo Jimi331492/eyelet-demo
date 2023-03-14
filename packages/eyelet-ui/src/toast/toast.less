@@ -1,0 +1,121 @@
+:root {
+	--toast-max-width: 686px;
+	--toast-min-width: 176px;
+	--toast-color: rgb(255 255 255);
+	--toast-border-radius: 8px;
+	--toast-background: rgba(50 50 51 / 0.7);
+	--toast-font-size: var(--font-size-md);
+	--toast-font-weight: 500;
+	--toast-margin: 12px 48px;
+	--toast-border-color: currentcolor;
+	--toast-success-background: var(--color-success);
+	--toast-info-background: var(--color-info);
+	--toast-error-background: var(--color-danger);
+	--toast-warning-background: var(--color-warning);
+	--toast-content-padding: 16px 32px;
+	--toast-action-margin: 0 8px 0 0;
+}
+
+.zm-transition-group {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	pointer-events: none;
+}
+
+.zm-pointer-auto {
+	pointer-events: auto;
+}
+
+.zm-toast {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: all 0.15s var(--cubic-bezier);
+
+	&__transition {
+		top: 0;
+		position: fixed;
+
+		.zm-toast__wrapper {
+			position: absolute;
+
+			&-top {
+				top: 5%;
+			}
+
+			&-center {
+				top: 45%;
+			}
+
+			&-bottom {
+				bottom: 5%;
+			}
+		}
+	}
+
+	&__wrapper {
+		max-width: var(--toast-max-width);
+		min-width: var(--toast-min-width);
+		display: flex;
+		border-radius: var(--toast-border-radius);
+		color: var(--toast-color);
+		background: var(--toast-background);
+		font-size: var(--toast-font-size);
+		font-weight: var(--toast-font-weight);
+		margin: var(--toast-margin);
+		align-items: center;
+		border-color: var(--toast-border-color);
+		pointer-events: auto;
+		transition: 0.3s var(--cubic-bezier);
+
+		&-success {
+			background: var(--toast-success-background);
+		}
+
+		&-info {
+			background: var(--toast-info-background);
+		}
+
+		&-warning {
+			background: var(--toast-warning-background);
+		}
+
+		&-error {
+			background: var(--toast-error-background);
+		}
+	}
+
+	&__content {
+		display: flex;
+		align-items: center;
+		flex-grow: 1;
+		padding: var(--toast-content-padding);
+
+		&--action {
+			margin: var(--toast-action-margin);
+			display: flex;
+		}
+	}
+
+	&__vertical {
+		flex-direction: column;
+		align-items: flex-start;
+
+		.zm-toast__action {
+			align-self: flex-end;
+			margin-bottom: 16px;
+		}
+	}
+
+	&-fade-enter-from,
+	&-fade-leave-to {
+		opacity: 0;
+		transform: translateY(-60px);
+	}
+}

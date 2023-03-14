@@ -161,6 +161,13 @@ export default defineConfig({
 				doc: 'dialog',
 				type: 2,
 			},
+			{
+				text: {
+					'zh-CN': 'Toast 轻提示',
+				},
+				doc: 'toast',
+				type: 2,
+			},
 		],
 		clipboard: {
 			'zh-CN': '代码已复制到剪切板',

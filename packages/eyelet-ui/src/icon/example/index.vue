@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import ZmIcon from '..';
-	import Snackbar from '../../snackbar';
+	import Toast from '../../toast';
 	import dark from '../../themes/dark';
 	import { reactive, onMounted, ref } from 'vue';
 	import Clipboard from 'clipboard';
@@ -22,7 +22,7 @@
 		});
 
 		clipboard.on('success', e => {
-			Snackbar.info({ content: `${e.text}复制成功!`, position: 'bottom' });
+			Toast.info({ content: `${e.text}复制成功!`, position: 'bottom' });
 		});
 	});
 
@@ -33,8 +33,8 @@
 
 <template>
 	<app-type>Icon尺寸</app-type>
-	<zm-icon class="icon-example__animation-icon" name="zm-logo" :size="24" />
-	<zm-icon class="icon-example__animation-icon" name="zm-logo" :size="32" />
+	<zm-icon name="zm-logo" />
+	<zm-icon name="zm-logo" :size="20" />
 
 	<app-type>Icon颜色</app-type>
 	<zm-icon class="icon-example__animation-icon" :size="24" name="zm-logo" />
@@ -52,7 +52,7 @@
 		class="icon-example__animation-icon"
 		name="zm-logo"
 		color="#2979ff"
-		@click="() => Snackbar.loading({ content: '点击成功', position: 'bottom' })"
+		@click="() => Toast.loading({ content: '点击成功', position: 'bottom' })"
 	/>
 
 	<app-type>切换动画</app-type>

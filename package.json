@@ -15,7 +15,7 @@
 		"test": "pnpm -C packages/eyelet-ui jest",
 		"test:watch": "pnpm -C packages/eyelet-ui jest -w",
 		"test:watchAll": "pnpm -C packages/eyelet-ui jest -wa",
-		"create:comp": "pnpm -C packages/eyelet-ui create"
+		"create:comp": "pnpm -C packages/eyelet-ui create:comp"
 	},
 	"keywords": [],
 	"author": "",

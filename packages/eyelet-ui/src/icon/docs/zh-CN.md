@@ -2,14 +2,14 @@
 
 ### 介绍
 
-基于字体的图标库，也支持网络图片。字体图标来自 [Material Design Icon](https://materialdesignicons.com/)
+基于字体的图标库，也支持网络图片。字体图标来自 [IconFont](https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=3837212)
 
 ### 图标尺寸
 
 ```html
 <template>
-	<var-icon name="checkbox-marked-circle" />
-	<var-icon name="checkbox-marked-circle" :size="26" />
+ <zm-icon name="zm-logo" />
+ <zm-icon name="zm-logo" :size="26" />
 </template>
 ```
 
@@ -17,8 +17,8 @@
 
 ```html
 <template>
-	<var-icon name="checkbox-marked-circle" color="#2979ff" />
-	<var-icon name="checkbox-marked-circle" color="#2979ff" :size="26" />
+ <zm-icon name="zm-logo" />
+ <zm-icon name="zm-logo" color="#2979ff" :size="26" />
 </template>
 ```
 
@@ -28,7 +28,7 @@
 
 ```html
 <template>
-	<var-icon name="https://varlet.gitee.io/varlet-ui/cat.jpg" :size="32" />
+ <zm-icon name="https://varlet.gitee.io/varlet-ui/cat.jpg" :size="32" />
 </template>
 ```
 
@@ -36,15 +36,15 @@
 
 ```html
 <script setup>
-	import { Snackbar } from '@varlet/ui';
+ import { Toast } from '@eyelet/ui';
 </script>
 
 <template>
-	<var-icon
-		name="checkbox-marked-circle"
-		color="#2979ff"
-		@click="() => Snackbar.success('点击成功')"
-	/>
+ <zm-icon
+  name="checkbox-marked-circle"
+  color="#2979ff"
+  @click="() => Toast.success('点击成功')"
+ />
 </template>
 ```
 
@@ -54,17 +54,17 @@
 
 ```html
 <script setup>
-	import { ref } from 'vue';
+ import { ref } from 'vue';
 
-	const name = ref('information');
+ const name = ref('information');
 
-	function toggle() {
-		name.value = name.value === 'information' ? 'checkbox-marked-circle' : 'information';
-	}
+ function toggle() {
+  name.value = name.value === 'information' ? 'checkbox-marked-circle' : 'information';
+ }
 </script>
 
 <template>
-	<var-icon color="#2979ff" :name="name" :transition="300" :size="30" @click="toggle" />
+ <zm-icon color="#2979ff" :name="name" :transition="300" :size="30" @click="toggle" />
 </template>
 ```
 
@@ -76,23 +76,23 @@
 /* playground-ignore */
 /* 设置字体 */
 @font-face {
-	font-family: 'my-icons';
-	src: url('https://xxx.my-icons.ttf') format('truetype');
+ font-family: 'my-icons';
+ src: url('https://xxx.my-icons.ttf') format('truetype');
 }
 
 /* 设置命名空间 */
 .my-icon {
-	font-family: 'my-icons';
+ font-family: 'my-icons';
 }
 /* 或 */
 .my-icon--set {
-	font-family: 'my-icons';
+ font-family: 'my-icons';
 }
 /* 设置命名空间结束 */
 
 /* 字体名称映射码点 */
 .my-icon-hot::before {
-	content: '\F000';
+ content: '\F000';
 }
 ```
 
@@ -101,7 +101,7 @@
 ```html
 <!-- playground-ignore -->
 <template>
-	<var-icon namespace="my-icon" name="hot" />
+ <zm-icon namespace="my-icon" name="hot" />
 </template>
 ```
 
@@ -114,7 +114,7 @@
 | `name`       | 图标名称                           | _string_           | `-`        |
 | `size`       | 尺寸                               | _string \| number_ | `-`        |
 | `color`      | 图标颜色, 只适用于字体图标         | _string_           | `-`        |
-| `namespace`  | 图标的命名空间, 可扩展自定义图标库 | _string_           | `var-icon` |
+| `namespace`  | 图标的命名空间, 可扩展自定义图标库 | _string_           | `zm-icon` |
 | `transition` | 过渡动画时间（ms）                 | _string \| number_ | `0`        |
 
 ### 事件
@@ -125,7 +125,7 @@
 
 ### 样式变量
 
-以下为组件使用的 css 变量，可以使用 [StyleProvider 组件](#/zh-CN/style-provider) 进行样式定制。
+<!-- 以下为组件使用的 css 变量，可以使用 [StyleProvider 组件](#/zh-CN/style-provider) 进行样式定制。 -->
 
 | 变量名        | 默认值 |
 | ------------- | ------ |

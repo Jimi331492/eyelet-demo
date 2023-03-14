@@ -28,5 +28,10 @@ export default [
     path: '/themes',
     // @ts-ignore
     component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/themes/example/index.vue')
+  },
+  {
+    path: '/toast',
+    // @ts-ignore
+    component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/toast/example/index.vue')
   }
 ]
