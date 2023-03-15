@@ -4,7 +4,7 @@ export declare const iconProps: Record<string, any>;
 
 export interface IconProps extends BasicAttributes {
 	name?: string;
-	size?: string | number;
+	size?: number;
 	color?: string;
 	namespace?: string;
 	transition?: string | number;

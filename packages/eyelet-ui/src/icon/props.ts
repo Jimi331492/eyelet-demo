@@ -5,7 +5,7 @@ export const props = {
 		type: String,
 	},
 	size: {
-		type: [Number, String],
+		type: Number,
 	},
 	color: {
 		type: String,

@@ -9,23 +9,6 @@
 ### 基本使用
 
 ```html
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const show = ref(false)
-</script>
-
-<template>
-  <zm-button type="primary" block @click="show = !show">基本使用</zm-button>
-  <zm-toast v-model:show="show">这是一条消息！！</zm-toast>
-</template>
-```
-
-### 垂直排列
-
-通过 `vertical` 属性改变 `toast` 排列方式，通过 `自定义插槽` 创建右边 action。
-
-```html
 <script setup>
 import { ref } from 'vue'
 
@@ -33,17 +16,12 @@ const show = ref(false)
 </script>
 
 <template>
-  <zm-toast v-model:show="show" :vertical="true">
-    这是一条消息！！
-    <template #action>
-      <zm-button type="primary" @click="show = !show">关闭</zm-button>
-    </template>
-  </zm-toast>
-  <zm-button type="primary" block @click="show = true">垂直排列</zm-button>
+  <zm-button size="large" @click="show = !show">基本使用</zm-button>
+  <zm-toast v-model:show="show">Toast组件调用-基本使用</zm-toast>
 </template>
 ```
 
-### 底部显示
+### 顶部显示
 
 通过 `position` 属性改变 `toast` 显示位置。
 
@@ -55,13 +33,33 @@ const show = ref(false)
 </script>
 
 <template>
-  <zm-toast v-model:show="show" position="bottom">
-    这是一条消息！！
-    <template #action>
-      <zm-button type="primary" @click="show = false">关闭</zm-button>
-    </template>
+  <zm-toast v-model:show="show" position="top">
+   Toast组件调用-顶部显示
+   <template #action>
+    <zm-icon :size="12" name="select" @click="show = false" />
+   </template>
   </zm-toast>
-  <zm-button type="primary" block @click="show = true">底部显示</zm-button>
+  <zm-button type="primary" size="large" @click="show = !show">顶部显示</zm-button>
+</template>
+```
+
+### 垂直排列
+
+通过 `vertical` 属性改变 `toast` 排列方式，通过 `自定义插槽` 创建上方 action。
+
+```html
+<script setup>
+import { ref } from 'vue'
+
+const show = ref(false)
+</script>
+
+<template>
+   <zm-toast v-model:show="show" position="center" :vertical="true">
+   Toast组件调用-垂直排列-居中显示
+   <template #action><zm-icon name="zm-logo" /></template>
+  </zm-toast>
+  <zm-button type="primary" size="large" @click="show = !show">垂直排列</zm-button>
 </template>
 ```
 
@@ -77,8 +75,8 @@ const show = ref(false)
 </script>
 
 <template>
-  <zm-toast v-model:show="show" :duration="1000"> 这是一条消息！！</zm-toast>
-  <zm-button type="primary" block @click="show = true">
+  <zm-toast v-model:show="show" :duration="1000">Toast组件调用-显示时长-1s</zm-toast>
+  <zm-button type="primary" size="large" @click="show = !show">
     显示时长
   </zm-button>
 </template>
@@ -96,10 +94,8 @@ const show = ref(false)
 </script>
 
 <template>
-  <zm-toast v-model:show="show" :forbid-click="true">
-    这是一条消息！！
-  </zm-toast>
-  <zm-button type="primary" block @click="show = true">
+  <zm-toast v-model:show="show" :forbid-click="true">禁止穿透点击</zm-toast>
+  <zm-button type="primary" size="large" @click="show = !show">
     禁止穿透
   </zm-button>
 </template>
@@ -111,11 +107,11 @@ const show = ref(false)
 
 ```html
 <script setup>
-import { Snackbar } from '@zmlet/ui'
+import { Toast } from '@eyelet/ui'
 </script>
 
 <template>
-  <zm-button type="warning" block @click="Snackbar("这是一个消息条")">基本使用</zm-button>
+  <zm-button size="large" @click="Toast("Toast函数调用-基本使用")">基本使用</zm-button>
 </template>
 ```
 
@@ -123,52 +119,82 @@ import { Snackbar } from '@zmlet/ui'
 
 ```html
 <script setup>
-import { Snackbar } from '@zmlet/ui'
+import { Toast } from '@eyelet/ui'
 
-function createSnackbar() {
-  Snackbar({
-    content: "这是一个消息条!!",
+function createToast() {
+  Toast({
+    content: "Toast函数调用-显示时长-1s",
     duration: 1000
   })
 }
 </script>
 
 <template>
-  <zm-button type="warning" block @click="createSnackbar">显示时长</zm-button>
+  <zm-button size="large" @click="createToast">显示时长</zm-button>
 </template>
 ```
 
-### 函数调用-底部显示
+### 函数调用-顶部显示
 
 ```html
 <script setup>
-import { Snackbar } from '@zmlet/ui'
+import { Toast } from '@eyelet/ui'
 
-function createSnackbar() {
-  Snackbar({
-    content: "这是一条消息！！",
-    position: 'bottom'
+function createToast() {
+  Toast({
+    content: "Toast函数调用-顶部显示",
+    position: 'top'
   })
 }
 </script>
 
 <template>
-  <zm-button type="warning" block @click="createSnackbar">底部显示</zm-button>
+  <zm-button type="warning" block @click="createToast">顶部显示</zm-button>
 </template>
 ```
 
-### Snackbar 类型
+### 函数调用-垂直排列
 
 ```html
 <script setup>
-import { Snackbar } from '@zmlet/ui'
+import { Toast } from '@eyelet/ui'
 
-function createSnackbar(type) {
-  Snackbar[type]("这是一个消息条")
+function createToast() {
+  Toast({
+    content: "Toast函数调用-顶部显示",
+    position: 'top'
+  })
+}
+</script>
+
+<template>
+  <zm-button type="warning" block @click="createToast">顶部显示</zm-button>
+</template>
+```
+
+### Toast 类型
+
+```html
+<script setup>
+import { Toast } from '@eyelet/ui'
+
+function createToast(type) {
   if (type === 'loading') {
+      const toast = Toast[type]({
+        content: '加载中...',
+        position: 'center',
+        vertical: true,
+      })
     setTimeout(() => {
-      Snackbar.success("加载成功")
+      toast.clear();
+      Toast.success({
+        content: '加载完成',
+        position: 'center',
+        vertical: true,
+      });
     }, 2000)
+  }else{
+     Toast[type]("这是一条Toast")
   }
 }
 </script>
@@ -178,35 +204,35 @@ function createSnackbar(type) {
     <zm-button 
       type="success" 
       block 
-      @click="createSnackbar('success')"
+      @click="createToast('success')"
     >
       成功
     </zm-button>
     <zm-button 
       type="warning" 
       block 
-      @click="createSnackbar('warning')"
+      @click="createToast('warning')"
     >
       警告
     </zm-button>
     <zm-button 
       type="info" 
       block 
-      @click="createSnackbar('info')"
+      @click="createToast('info')"
     >
       消息
     </zm-button>
     <zm-button 
       type="danger" 
       block 
-      @click="createSnackbar('error')"
+      @click="createToast('error')"
     >
       错误
     </zm-button>
     <zm-button 
       type="primary" 
       block 
-      @click="createSnackbar('loading')"
+      @click="createToast('loading')"
     >
       加载
     </zm-button>
@@ -216,17 +242,17 @@ function createSnackbar(type) {
 
 ### 多例模式
 
-使用函数式调用时，Snackbar 默认采用单例模式，即同一时间只会存在一个 Snackbar，如果需要在同一时间弹出多个 Snackbar，可以参考下面的示例:
+使用函数式调用时，Toast 默认采用单例模式，即同一时间只会存在一个 Toast，如果需要在同一时间弹出多个 Toast，可以参考下面的示例:
 
 ```html
 <script setup>
-import { Snackbar } from '@zmlet/ui'
+import { Toast } from '@zmlet/ui'
 
 function openMultiple() {
-  Snackbar.allowMultiple(true)
+  Toast.allowMultiple(true)
 
-  const toast1 = Snackbar('Snackbar 1');
-  Snackbar.success('Snackbar 2');
+  const toast1 = Toast('Toast 1');
+  Toast.success('Toast 2');
 
   setTimeout(() => {
     toast1.clear()
@@ -245,17 +271,16 @@ function openMultiple() {
 
 | 参数               | 说明                                                      | 类型 | 默认值 |
 |------------------|---------------------------------------------------------| -------- | ---------- |
-| `v-model:show`   | 是否显示 `Snackbar`                                         | _boolean_ | `false` |
-| `type`           | `Snackbar` 类型，可选值为 `success warning info error loading` | _string_ | `-` |
-| `position`       | `Snackbar`  位置，可选值为 `top center bottom`                 | _string_ | `top` |
+| `v-model:show`   | 是否显示 `Toast`                                         | _boolean_ | `false` |
+| `type`           | `Toast` 类型，可选值为 `success warning info error loading` | _string_ | `-` |
+| `position`       | `Toast`  位置，可选值为 `top center bottom`                 | _string_ | `top` |
 | `duration`       | 显示时长                                                    | _number_ | `3000` |
 | `content`        | 自定义内容                                                   | _string_ | `-` |
 | `content-class`  | 自定义内容的类名                                                | _string_ | `-` |
 | `vertical`       | 是否启用竖直排列方式                                              | _boolean_ | `false` |
-| `loading-type`   | Loading类型(见 `Loading` 组件)                               | _string_ | `circle`       |
-| `loading-size`   | Loading大小(见 `Loading` 组件)                               | _string_ | `normal`       |
-| `loading-color`  | loading颜色(见`_loading`组件)                                |_string_|`current_color`|
-| `loading-radius` | Loading半径大小(见 `Loading` 组件)                             | _string \| number_  | `-` |
+| `loading-name`   | LoadingIcon(见 `Icon` 组件)                               | _number_ | `餐眼gif`       |
+| `loading-size`   | LoadingIcon大小(见 `Icon` 组件)                               | _string_ | `40`       |
+| `loading-color`  | LoadingIcon颜色(见 `Icon`组件)                                |_string_|`current_color`|
 | `lock-scroll`    | 是否禁止滚动穿透                                                | _boolean_  | `false` |
 | `forbid-click`   | 是否禁止穿透点击                                                | _boolean_  | `false` |
 | `teleport`       | 弹出层挂载的位置                                                | _TeleportProps['to']_  | `body` |
@@ -264,57 +289,56 @@ function openMultiple() {
 
 | 事件名 | 说明 | 回调参数 |
 | ----- | -------- | -------- |
-| `open` | 打开 `Snackbar` 时触发 | `-` |
-| `opened` |  打开 `Snackbar` 动画结束时触发 | `-` |
-| `close` | 关闭 `Snackbar` 时触发 | `-` |
-| `closed` | 关闭 `Snackbar` 动画结束时触发 | `-` |
+| `open` | 打开 `Toast` 时触发 | `-` |
+| `opened` |  打开 `Toast` 动画结束时触发 | `-` |
+| `close` | 关闭 `Toast` 时触发 | `-` |
+| `closed` | 关闭 `Toast` 动画结束时触发 | `-` |
 
 ### 插槽
 
 | 插槽名 | 说明 | 参数 |
 | --- | --- | --- |
-| `default` | `Snackbar` 内容 | `-` |
-| `action` | `Snackbar` 右边动作区 | `-` |
+| `default` | `Toast` 内容 | `-` |
+| `action` | `Toast` 右边动作区 | `-` |
 
 ### 方法
 
-实例上的 `clear` 方法可关闭当前实例，全局 `clear` 方法可关闭所有的消息条。
+实例上的 `clear` 方法可关闭当前实例，全局 `clear` 方法可关闭所有的轻提示。
 
 | 方法名 | 说明 | 参数 | 返回值 |
 | ---- | ---- | ---- | ---- |
-| `Snackbar` | 显示消息条 | _options \| string_ | `toast 实例` |
-| `Snackbar.success` | 显示成功消息条 | _options \| string_ | `toast 实例` |
-| `Snackbar.info` | 显示普通消息条 | _options \| string_ | `toast 实例` |
-| `Snackbar.warning` | 显示警告消息条 | _options \| string_ | `toast 实例` |
-| `Snackbar.error` | 显示错误消息条 | _options \| string_ | `toast 实例` |
-| `Snackbar.loading` | 显示加载消息条 | _options \| string_ | `toast 实例` |
-| `Snackbar.clear` | 关闭消息条 | _-_ | `-` |
-| `Snackbar.allowMultiple` | 是否允许多例模式 | _boolean_ | `-` |
-| `Snackbar.setDefaultOptions` | 设置默认的选项配置 | _options_ | `-` |
-| `Snackbar.resetDefaultOptions` | 重置默认的选项配置 | _-_ | `-` |
+| `Toast` | 显示轻提示 | _options \| string_ | `toast 实例` |
+| `Toast.success` | 显示成功轻提示 | _options \| string_ | `toast 实例` |
+| `Toast.info` | 显示普通轻提示 | _options \| string_ | `toast 实例` |
+| `Toast.warning` | 显示警告轻提示 | _options \| string_ | `toast 实例` |
+| `Toast.error` | 显示错误轻提示 | _options \| string_ | `toast 实例` |
+| `Toast.loading` | 显示加载轻提示 | _options \| string_ | `toast 实例` |
+| `Toast.clear` | 关闭轻提示 | _-_ | `-` |
+| `Toast.allowMultiple` | 是否允许多例模式 | _boolean_ | `-` |
+| `Toast.setDefaultOptions` | 设置默认的选项配置 | _options_ | `-` |
+| `Toast.resetDefaultOptions` | 重置默认的选项配置 | _-_ | `-` |
 
-### Snackbar Options
+### Toast Options
 
 #### 函数式调用时传入的选项
 
 | 参数              | 说明                                                      | 类型 | 默认值            |
 |-----------------|---------------------------------------------------------| -------- |----------------|
-| `type`          | `Snackbar` 类型，可选值为 `success warning info error loading` | _string_ | `-`            |
-| `position`      | `Snackbar` 位置，可选值为 `top center bottom`                  | _string_ | `top`          |
+| `type`          | `Toast` 类型，可选值为 `success warning info error loading` | _string_ | `-`            |
+| `position`      | `Toast` 位置，可选值为 `top center bottom`                  | _string_ | `top`          |
 | `duration`      | 显示时长(当 `type` 属性为 `loading` 时，需要手动关闭)                   | _number_ | `3000`         |
 | `content`       | 自定义内容                                                   | _string_ | `-`            |
 | `contentClass`  | 自定义内容的类名                                                | _string_ | `-`            |
 | `vertical`      | 是否启用竖直排列方式                                              | _boolean_ | `false`        |
-| `loadingType`   | Loading类型(见 `Loading` 组件)                               | _string_ | `circle`       |
-| `loadingSize`   | Loading大小(见 `Loading` 组件)                               | _string_ | `normal`       |
-| `loadingColor`  | Loading颜色(见 `Loading` 组件)                               | _string_ | `currentColor` |
-| `loadingRadius` | Loading半径大小(见 `Loading` 组件)                                 | _string \| number_  | `-` |
+| `loadingName`   | LoadingIcon(见 `Icon` 组件)                               | _string_ | `circle`       |
+| `loadingSize`   | LoadingIcon大小(见 `Icon` 组件)                               | _string_ | `normal`       |
+| `loadingColor`  | LoadingIcon颜色(见 `Icon` 组件)                               | _string_ | `currentColor` |
 | `lockScroll`    | 是否禁止滚动穿透                                                | _boolean_  | `false`        |
 | `forbidClick`   | 是否禁止穿透点击(当 `type` 属性为 `loading` 时，默认为 `true`)           | _boolean_  | `false`        |
-| `onOpen`        | 打开 `Snackbar` 时触发                                       | _() => void_ | `-`            |
-| `onOpened`      | 打开 `Snackbar` 动画结束时触发                                   | _() => void_ | `-`            |
-| `onClose`       | 关闭 `Snackbar` 时触发                                       | _() => void_ | `-`            |
-| `onClosed`      | 关闭 `Snackbar` 动画结束时触发                                   | _() => void_ | `-`            |
+| `onOpen`        | 打开 `Toast` 时触发                                       | _() => void_ | `-`            |
+| `onOpened`      | 打开 `Toast` 动画结束时触发                                   | _() => void_ | `-`            |
+| `onClose`       | 关闭 `Toast` 时触发                                       | _() => void_ | `-`            |
+| `onClosed`      | 关闭 `Toast` 动画结束时触发                                   | _() => void_ | `-`            |
 
 ### 样式变量
 
@@ -322,6 +346,7 @@ function openMultiple() {
 
 | 变量名 | 默认值 |
 | --- | --- |
+| `--toast-width` | `240px` |
 | `--toast-max-width` | `686px` |
 | `--toast-min-width` | `171px` |
 | `--toast-color` | `rgba(255, 255, 255, .87)` |

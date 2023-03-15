@@ -155,6 +155,20 @@ export const toPxNum = (value: unknown): number => {
 	return 0;
 };
 
+// e.g. return 1
+
+/** px 转 vw, 750 是设置的屏幕宽度 */
+export const px2vw = (value: number | undefined): string | undefined => {
+	if (value == null) {
+		return undefined;
+	}
+	if (isNumber(value)) {
+		console.log(window);
+
+		return `${value / 7.5}vw`;
+	}
+};
+
 // e.g. return 1px 1% 1vw 1vh 1rem null var(--color-primary) calc(1px + 1px)
 export const toSizeUnit = (value: unknown) => {
 	if (value == null) {

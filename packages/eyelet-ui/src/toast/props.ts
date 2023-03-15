@@ -1,4 +1,5 @@
-import { defineListenerProp } from '../utils/components';
+import { defineListenerProp, pickProps } from '../utils/components';
+import { props as iconProps } from '../icon/props';
 import { TOAST_TYPE, ToastType } from './index';
 import type { PropType, TeleportProps } from 'vue';
 
@@ -19,7 +20,7 @@ export const props = {
 	// toast显示的位置
 	position: {
 		type: String,
-		default: 'top',
+		default: 'bottom',
 		validator: positionValidator,
 	},
 	// content内容
@@ -39,6 +40,18 @@ export const props = {
 	vertical: {
 		type: Boolean,
 		default: false,
+	},
+	loadingName: {
+		...pickProps(iconProps, 'name'),
+		default: 'https://canyan.kp-static.com/mini/top-loading.gif',
+	},
+	loadingSize: {
+		...pickProps(iconProps, 'size'),
+		default: 40,
+	},
+	loadingColor: {
+		...pickProps(iconProps, 'color'),
+		default: 'currentColor',
 	},
 	// 是否禁止滚动穿透
 	lockScroll: {

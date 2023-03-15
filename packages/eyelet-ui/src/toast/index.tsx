@@ -8,13 +8,7 @@ import { isPlainObject, isString, toNumber } from '@varlet/shared';
 
 export type ToastType = 'success' | 'warning' | 'info' | 'error' | 'loading';
 
-export const TOAST_TYPE: Array<ToastType> = [
-	'loading',
-	'success',
-	'warning',
-	'info',
-	'error',
-];
+export const TOAST_TYPE: Array<ToastType> = ['loading', 'success', 'warning', 'info', 'error'];
 
 interface ToastHandel {
 	clear: () => void;
@@ -40,7 +34,7 @@ interface ToastOptions {
 
 interface UniqToastOptions {
 	id: number;
-	reactiveSnackOptions: ToastOptions;
+	reactiveToastOptions: ToastOptions;
 	_update?: string;
 	animationEnd?: boolean;
 }
@@ -78,7 +72,7 @@ let isAllowMultiple = false;
 const defaultOptionsValue: ToastOptions = {
 	type: undefined,
 	content: '',
-	position: 'top',
+	position: 'bottom',
 	duration: 3000,
 	vertical: false,
 	contentClass: undefined,
@@ -104,34 +98,34 @@ const TransitionGroupHost = {
 	setup() {
 		return () => {
 			const toastList = uniqToastOptions.map(
-				({ id, reactiveSnackOptions, _update }: UniqToastOptions) => {
+				({ id, reactiveToastOptions, _update }: UniqToastOptions) => {
 					const transitionGroupEl = document.querySelector('.zm-transition-group');
 					if (
-						reactiveSnackOptions.forbidClick ||
-						reactiveSnackOptions.type === 'loading'
+						reactiveToastOptions.forbidClick ||
+						reactiveToastOptions.type === 'loading'
 					) {
 						(transitionGroupEl as HTMLElement).classList.add('zm-pointer-auto');
 					} else {
 						(transitionGroupEl as HTMLElement).classList.remove('zm-pointer-auto');
 					}
 
-					if (isAllowMultiple) reactiveSnackOptions.position = 'top';
+					if (isAllowMultiple) reactiveToastOptions.position = 'top';
 
 					const position = isAllowMultiple ? 'relative' : 'absolute'; // avoid stylelint value-keyword-case error
 
 					const style = {
 						position,
-						...getTop(reactiveSnackOptions.position),
+						...getTop(reactiveToastOptions.position),
 					};
 
 					return (
 						<ZmToastCore
-							{...reactiveSnackOptions}
+							{...reactiveToastOptions}
 							key={id}
 							style={style}
 							data-id={id}
 							_update={_update}
-							v-model={[reactiveSnackOptions.show, 'show']}
+							v-model={[reactiveToastOptions.show, 'show']}
 						/>
 					);
 				},
@@ -152,12 +146,12 @@ const TransitionGroupHost = {
 };
 
 const Toast: Toast = function (options?: ToastOptions | string): ToastHandel {
-	const snackOptions: ToastOptions = normalizeOptions(options);
-	const reactiveSnackOptions: ToastOptions = reactive<ToastOptions>({
+	const toastOptions: ToastOptions = normalizeOptions(options);
+	const reactiveToastOptions: ToastOptions = reactive<ToastOptions>({
 		...defaultOptions,
-		...snackOptions,
+		...toastOptions,
 	});
-	reactiveSnackOptions.show = true;
+	reactiveToastOptions.show = true;
 
 	if (!isMount) {
 		isMount = true;
@@ -167,22 +161,22 @@ const Toast: Toast = function (options?: ToastOptions | string): ToastHandel {
 	const { length } = uniqToastOptions;
 	const uniqToastOptionItem: UniqToastOptions = {
 		id: sid++,
-		reactiveSnackOptions,
+		reactiveToastOptions,
 	};
 
 	if (length === 0 || isAllowMultiple) {
 		addUniqOption(uniqToastOptionItem);
 	} else {
 		const _update = `update-${sid}`;
-		updateUniqOption(reactiveSnackOptions, _update);
+		updateUniqOption(reactiveToastOptions, _update);
 	}
 
 	return {
 		clear() {
 			if (!isAllowMultiple && uniqToastOptions.length) {
-				uniqToastOptions[0].reactiveSnackOptions.show = false;
+				uniqToastOptions[0].reactiveToastOptions.show = false;
 			} else {
-				reactiveSnackOptions.show = false;
+				reactiveToastOptions.show = false;
 			}
 		},
 	};
@@ -209,7 +203,7 @@ Toast.install = function (app: App) {
 Toast.allowMultiple = function (bool = false) {
 	if (bool !== isAllowMultiple) {
 		uniqToastOptions.forEach((option: UniqToastOptions) => {
-			option.reactiveSnackOptions.show = false;
+			option.reactiveToastOptions.show = false;
 		});
 
 		isAllowMultiple = bool;
@@ -218,7 +212,7 @@ Toast.allowMultiple = function (bool = false) {
 
 Toast.clear = function () {
 	uniqToastOptions.forEach((option: UniqToastOptions) => {
-		option.reactiveSnackOptions.show = false;
+		option.reactiveToastOptions.show = false;
 	});
 };
 
@@ -236,18 +230,18 @@ function opened(element: HTMLElement): void {
 	const id = element.getAttribute('data-id');
 	const option = uniqToastOptions.find(option => option.id === toNumber(id));
 	if (option) {
-		call(option.reactiveSnackOptions.onOpened);
+		call(option.reactiveToastOptions.onOpened);
 	}
 }
 
 function removeUniqOption(element: HTMLElement): void {
-	element.parentElement && element.parentElement.classList.remove('var-pointer-auto');
+	element.parentElement && element.parentElement.classList.remove('zm-pointer-auto');
 	const id = element.getAttribute('data-id');
 
 	const option = uniqToastOptions.find(option => option.id === toNumber(id));
 	if (option) {
 		option.animationEnd = true;
-		call(option.reactiveSnackOptions.onClosed);
+		call(option.reactiveToastOptions.onClosed);
 	}
 
 	const isAllAnimationEnd = uniqToastOptions.every(option => option.animationEnd);
@@ -267,12 +261,12 @@ function normalizeOptions(options = {}): ToastOptions {
 	return isString(options) ? { content: options } : options;
 }
 
-function updateUniqOption(reactiveSnackOptions: ToastOptions, _update: string) {
+function updateUniqOption(reactiveToastOptions: ToastOptions, _update: string) {
 	const [firstOption] = uniqToastOptions;
 
-	firstOption.reactiveSnackOptions = {
-		...firstOption.reactiveSnackOptions,
-		...reactiveSnackOptions,
+	firstOption.reactiveToastOptions = {
+		...firstOption.reactiveToastOptions,
+		...reactiveToastOptions,
 	};
 
 	firstOption._update = _update;

@@ -8,12 +8,14 @@
 	import { AppType, watchDarkMode } from '@varlet/cli/client';
 
 	const iconNames = reactive(icons);
-	const iconName = ref('information');
+	const iconName = ref('zm-logo');
 	const background = ref('#fff');
 
 	function toggle() {
 		iconName.value =
-			iconName.value === 'information' ? 'checkbox-marked-circle' : 'information';
+			iconName.value === 'zm-logo'
+				? 'https://canyan.kp-static.com/mini/top-loading.gif'
+				: 'zm-logo';
 	}
 
 	onMounted(() => {
@@ -22,7 +24,7 @@
 		});
 
 		clipboard.on('success', e => {
-			Toast.info({ content: `${e.text}复制成功!`, position: 'bottom' });
+			Toast.info(`${e.text}复制成功!`);
 		});
 	});
 
@@ -34,32 +36,29 @@
 <template>
 	<app-type>Icon尺寸</app-type>
 	<zm-icon name="zm-logo" />
-	<zm-icon name="zm-logo" :size="20" />
+	<zm-icon name="zm-logo" :size="64" />
 
 	<app-type>Icon颜色</app-type>
-	<zm-icon class="icon-example__animation-icon" :size="24" name="zm-logo" />
-	<zm-icon class="icon-example__animation-icon" :size="32" name="zm-logo" color="#2979ff" />
+	<zm-icon :size="64" name="zm-logo" />
+	<zm-icon :size="64" name="zm-logo" color="#2979ff" />
 
 	<app-type>使用图片</app-type>
-	<zm-icon
-		class="icon-example__animation-icon"
-		name="https://varlet.gitee.io/varlet-ui/cat.jpg"
-		:size="32"
-	/>
+	<zm-icon name="https://canyan.kp-static.com/mini/top-loading.gif" :size="64" />
 
 	<app-type>注册事件</app-type>
 	<zm-icon
 		class="icon-example__animation-icon"
 		name="zm-logo"
+		:size="64"
 		color="#2979ff"
-		@click="() => Toast.loading({ content: '点击成功', position: 'bottom' })"
+		@click="() => Toast('点击成功')"
 	/>
 
 	<app-type>切换动画</app-type>
 	<zm-icon
 		class="icon-example__animation-icon"
 		color="#2979ff"
-		:size="30"
+		:size="64"
 		:transition="300"
 		:name="iconName"
 		@click="toggle"

@@ -1,4 +1,5 @@
 :root {
+	--toast-width: 240px;
 	--toast-max-width: 686px;
 	--toast-min-width: 176px;
 	--toast-color: rgb(255 255 255);
@@ -36,7 +37,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	transition: all 0.15s var(--cubic-bezier);
+	transition: all 0.3s var(--cubic-bezier);
 
 	&__transition {
 		top: 0;
@@ -103,19 +104,24 @@
 		}
 	}
 
-	&__vertical {
-		flex-direction: column;
-		align-items: flex-start;
-
-		.zm-toast__action {
-			align-self: flex-end;
-			margin-bottom: 16px;
+	& &__vertical {
+		border-radius: 16px;
+		& .zm-toast__content {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			min-width: var(--toast-width);
+			height: var(--toast-width);
+			&--action {
+				align-self: center;
+				margin-bottom: 16px;
+			}
 		}
 	}
 
 	&-fade-enter-from,
 	&-fade-leave-to {
 		opacity: 0;
-		transform: translateY(-60px);
 	}
 }

@@ -163,6 +163,12 @@ export default defineConfig({
 			},
 			{
 				text: {
+					'zh-CN': '反馈组件',
+				},
+				type: 1,
+			},
+			{
+				text: {
 					'zh-CN': 'Toast 轻提示',
 				},
 				doc: 'toast',

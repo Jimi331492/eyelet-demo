@@ -36,11 +36,6 @@ export default [
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/icon/docs/zh-CN.md')
       },
       {
-        path: '/zh-CN/snackbar',
-        // @ts-ignore
-        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/snackbar/docs/zh-CN.md')
-      },
-      {
         path: '/en-US/space',
         // @ts-ignore
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/space/docs/en-US.md')

@@ -13,9 +13,9 @@
 		:style="{
 			color,
 			transition: `transform ${toNumber(transition)}ms`,
-			width: isURL(name) ? toSizeUnit(size) : null,
-			height: isURL(name) ? toSizeUnit(size) : null,
-			fontSize: toSizeUnit(size),
+			width: isURL(name) ? px2vw(size) : null,
+			height: isURL(name) ? px2vw(size) : null,
+			fontSize: px2vw(size),
 		}"
 		:src="isURL(name) ? nextName : null"
 		@click="onClick"
@@ -26,7 +26,7 @@
 	import { defineComponent, watch, ref, nextTick, type Ref } from 'vue';
 	import { isURL, toNumber } from '@varlet/shared';
 	import { props } from './props';
-	import { toSizeUnit } from '../utils/elements';
+	import { px2vw } from '../utils/elements';
 	import { createNamespace } from '../utils/components';
 
 	const { n, classes } = createNamespace('icon');
@@ -66,7 +66,7 @@
 				shrinking,
 				isURL,
 				toNumber,
-				toSizeUnit,
+				px2vw,
 			};
 		},
 	});

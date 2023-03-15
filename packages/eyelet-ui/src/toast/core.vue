@@ -9,7 +9,6 @@
 				classes(
 					n('wrapper'),
 					n(`wrapper-${position}`),
-					n('$-elevation--4'),
 					[vertical, n('vertical')],
 					[type && TOAST_TYPE.includes(type), n(`wrapper-${type}`)],
 				)
@@ -19,6 +18,11 @@
 			<div :class="[n('content'), contentClass]">
 				<div :class="n('content--action')">
 					<zm-icon v-if="iconName" :name="iconName" :size="12" />
+					<zm-icon
+						v-if="type === 'loading'"
+						:name="loadingName"
+						:size="loadingSize"
+					/>
 					<slot name="action" />
 				</div>
 				<slot>{{ content }}</slot>
@@ -38,8 +42,8 @@
 		type ComputedRef,
 	} from 'vue';
 	import ZmIcon from '../icon';
-    import { props } from './props';
-    import { TOAST_TYPE, type ToastType } from './index';
+	import { props } from './props';
+	import { TOAST_TYPE, type ToastType } from './index';
 	import { useZIndex } from '../context/zIndex';
 	import { useLock } from '../context/lock';
 	import { call, createNamespace } from '../utils/components';
@@ -51,7 +55,7 @@
 		warning: 'select',
 		info: 'select',
 		error: 'select',
-		loading: 'select',
+		loading: '',
 	};
 
 	export default defineComponent({
