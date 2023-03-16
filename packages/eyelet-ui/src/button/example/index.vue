@@ -9,9 +9,13 @@
 	</zm-space>
 	<app-type>修改大小</app-type>
 	<zm-space direction="column">
-		<zm-button size="small">small</zm-button>
-		<zm-button size="defalut">defalut</zm-button>
-		<zm-button size="large">large</zm-button>
+		<zm-button size="small">小型</zm-button>
+		<zm-button size="defalut">默认</zm-button>
+		<zm-button size="large">大型</zm-button>
+	</zm-space>
+	<app-type>块级按钮</app-type>
+	<zm-space direction="column">
+		<zm-button block>块级按钮</zm-button>
 	</zm-space>
 </template>
 

@@ -65,6 +65,11 @@ export default [
         // @ts-ignore
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/docs/home.zh-CN.md')
       },
+      {
+        path: '/zh-CN/style',
+        // @ts-ignore
+        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/docs/style.zh-CN.md')
+      },
     ]
   }
 ]

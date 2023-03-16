@@ -1,6 +1,7 @@
 {
 	"name": "@eyelet/icons",
 	"version": "1.0.0",
+	"private": false,
 	"description": "Icons of eyelet",
 	"type": "module",
 	"main": "dist/index.js",
@@ -27,5 +28,8 @@
 	},
 	"devDependencies": {
 		"@varlet/cli": "^2.9.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

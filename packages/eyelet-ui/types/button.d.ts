@@ -4,6 +4,7 @@ export type size = 'large' | 'small' | 'default';
 export interface ButtonProps {
 	color?: string;
 	size?: size;
+	block?: boolean;
 	onClick?: (e: Event) => void;
 }
 

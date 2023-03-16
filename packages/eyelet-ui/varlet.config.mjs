@@ -136,6 +136,13 @@ export default defineConfig({
 			},
 			{
 				text: {
+					'zh-CN': '全局样式',
+				},
+				doc: 'style',
+				type: 3,
+			},
+			{
+				text: {
 					'zh-CN': '基础组件',
 				},
 				type: 1,

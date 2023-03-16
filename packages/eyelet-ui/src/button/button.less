@@ -1,27 +1,50 @@
+:root {
+	--button-sm-width: 152px;
+	--button-sm-height: 64px;
+	--button-lg-width: 335px;
+	--button-lg-height: 96px;
+	--button-width: 224px;
+	--button-height: 88px;
+	--button-color: rgb(255 255 255);
+	--button-background: #286fff;
+	--button-border-radius: 16px;
+	--button-sm-border-radius: 8px;
+	--button-success-background: var(--color-success);
+	--button-info-background: var(--color-info);
+	--button-error-background: var(--color-danger);
+	--button-warning-background: var(--color-warning);
+}
+
 .zm-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 335px;
-	height: 88px;
+	min-width: var(--button-width);
+	height: var(--button-height);
 	margin: 0;
 	padding: 0;
-	color: #fff;
+	color: var(--button-color);
 	outline: none;
 	cursor: pointer;
-	background: #286fff;
-	border-radius: 16px;
+	background: var(--button-background);
+	border-radius: var(--button-border-radius);
 	border: 2px solid transparent;
 	&:active {
 		opacity: 0.9;
 	}
 
-	&.small {
-		width: 152px;
+	&--small {
+		min-width: var(--button-sm-width);
+		height: var(--button-sm-height);
+		border-radius: var(--button-sm-border-radius);
 	}
 
-	&.large {
-		width: 686px;
-		height: 96px;
+	&--large {
+		min-width: var(--button-lg-width);
+		height: var(--button-lg-height);
+	}
+
+	&--block {
+		width: 100%;
 	}
 }

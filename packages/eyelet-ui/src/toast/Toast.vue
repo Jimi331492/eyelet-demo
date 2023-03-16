@@ -36,5 +36,5 @@
 </script>
 
 <style lang="less">
-	@import './Toast.less';
+	@import './toast';
 </style>

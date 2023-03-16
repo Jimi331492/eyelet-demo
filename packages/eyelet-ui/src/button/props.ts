@@ -15,5 +15,10 @@ export const props = {
 		default: 'default',
 		validator: sizeValidator,
 	},
+	block: {
+		type: Boolean,
+		require: false,
+		default: false,
+	},
 	onClick: Function as PropType<(e: Event) => void>,
 };

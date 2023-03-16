@@ -12,11 +12,15 @@ export default defineComponent({
 		const handleClick = (e: Event) => props.onClick?.(e);
 
 		return () => {
-			const { color, size } = props;
+			const { color, size, block } = props;
 
 			return (
 				<button
-					class={classes(n(), size)}
+					class={classes(n(), n(`--${size}`), [
+						block,
+						`${n('$--flex')} ${n('--block')}`,
+						n('$--inline-flex'),
+					])}
 					style={{ background: color }}
 					onClick={handleClick}
 				>
