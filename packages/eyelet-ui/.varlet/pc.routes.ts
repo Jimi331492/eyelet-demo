@@ -46,11 +46,6 @@ export default [
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/style-provider/docs/zh-CN.md')
       },
       {
-        path: '/en-US/styles',
-        // @ts-ignore
-        component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/styles/docs/en-US.md')
-      },
-      {
         path: '/zh-CN/styles',
         // @ts-ignore
         component: () => import('/Users/jimilo/Desktop/UI-source/eyelet/packages/eyelet-ui/src/styles/docs/zh-CN.md')

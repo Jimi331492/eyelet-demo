@@ -274,7 +274,7 @@ function openMultiple() {
 | `v-model:show`   | 是否显示 `Toast`                                         | _boolean_ | `false` |
 | `type`           | `Toast` 类型，可选值为 `success warning info error loading` | _string_ | `-` |
 | `position`       | `Toast`  位置，可选值为 `top center bottom`                 | _string_ | `top` |
-| `duration`       | 显示时长                                                    | _number_ | `3000` |
+| `duration`       | 显示时长                                                    | _number_ | `2000` |
 | `content`        | 自定义内容                                                   | _string_ | `-` |
 | `content-class`  | 自定义内容的类名                                                | _string_ | `-` |
 | `vertical`       | 是否启用竖直排列方式                                              | _boolean_ | `false` |
@@ -326,7 +326,7 @@ function openMultiple() {
 |-----------------|---------------------------------------------------------| -------- |----------------|
 | `type`          | `Toast` 类型，可选值为 `success warning info error loading` | _string_ | `-`            |
 | `position`      | `Toast` 位置，可选值为 `top center bottom`                  | _string_ | `top`          |
-| `duration`      | 显示时长(当 `type` 属性为 `loading` 时，需要手动关闭)                   | _number_ | `3000`         |
+| `duration`      | 显示时长(当 `type` 属性为 `loading` 时，需要手动关闭)                   | _number_ | `2000`         |
 | `content`       | 自定义内容                                                   | _string_ | `-`            |
 | `contentClass`  | 自定义内容的类名                                                | _string_ | `-`            |
 | `vertical`      | 是否启用竖直排列方式                                              | _boolean_ | `false`        |

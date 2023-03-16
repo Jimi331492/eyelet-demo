@@ -1,4 +1,4 @@
-import { VarComponent, BasicAttributes, ListenerProp } from './zmComponent';
+import { ZmComponent, BasicAttributes, ListenerProp } from './zmComponent';
 
 export declare const iconProps: Record<string, any>;
 
@@ -11,7 +11,7 @@ export interface IconProps extends BasicAttributes {
 	onClick?: ListenerProp<(event: Event) => void>;
 }
 
-export class Icon extends VarComponent {
+export class Icon extends ZmComponent {
 	$props: IconProps;
 }
 

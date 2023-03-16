@@ -8,7 +8,7 @@
 
 ```js
 // playground-ignore
-import '@varlet/ui/es/styles/elevation.css';
+import '@eyelet/ui/es/styles/elevation.css';
 ```
 
 ### 基本使用
@@ -17,29 +17,29 @@ import '@varlet/ui/es/styles/elevation.css';
 
 ```html
 <template>
-	<var-space class="elevation-example-list" :size="[16, 16]">
-		<div
-			class="elevation-example-item"
-			:class="`var-elevation--${e - 1}`"
-			v-for="e in 25"
-			:key="e"
-		>
-			{{ e - 1 }}
-		</div>
-	</var-space>
+ <zm-space class="elevation-example-list" :size="[16, 16]">
+  <div
+   class="elevation-example-item"
+   :class="`var-elevation--${e - 1}`"
+   v-for="e in 25"
+   :key="e"
+  >
+   {{ e - 1 }}
+  </div>
+ </zm-space>
 </template>
 
 <style>
-	.elevation-example-list {
-		margin-top: 8px !important;
-	}
+ .elevation-example-list {
+  margin-top: 8px !important;
+ }
 
-	.elevation-example-item {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 25vw;
-		height: 25vw;
-	}
+ .elevation-example-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  height: 25vw;
+ }
 </style>
 ```

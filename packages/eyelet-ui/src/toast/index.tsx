@@ -73,7 +73,7 @@ const defaultOptionsValue: ToastOptions = {
 	type: undefined,
 	content: '',
 	position: 'bottom',
-	duration: 3000,
+	duration: 2000,
 	vertical: false,
 	contentClass: undefined,
 	lockScroll: false,

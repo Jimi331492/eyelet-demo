@@ -163,8 +163,6 @@ export const px2vw = (value: number | undefined): string | undefined => {
 		return undefined;
 	}
 	if (isNumber(value)) {
-		console.log(window);
-
 		return `${value / 7.5}vw`;
 	}
 };

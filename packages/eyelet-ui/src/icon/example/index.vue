@@ -35,21 +35,21 @@
 
 <template>
 	<app-type>Icon尺寸</app-type>
-	<zm-icon name="zm-logo" />
-	<zm-icon name="zm-logo" :size="64" />
+	<zm-icon name="zm-logo" :size="32" />
+	<zm-icon name="zm-logo" :size="48" />
 
 	<app-type>Icon颜色</app-type>
-	<zm-icon :size="64" name="zm-logo" />
-	<zm-icon :size="64" name="zm-logo" color="#2979ff" />
+	<zm-icon :size="48" name="zm-logo" />
+	<zm-icon :size="48" name="zm-logo" color="#2979ff" />
 
 	<app-type>使用图片</app-type>
-	<zm-icon name="https://canyan.kp-static.com/mini/top-loading.gif" :size="64" />
+	<zm-icon name="https://canyan.kp-static.com/mini/top-loading.gif" :size="48" />
 
 	<app-type>注册事件</app-type>
 	<zm-icon
 		class="icon-example__animation-icon"
 		name="zm-logo"
-		:size="64"
+		:size="48"
 		color="#2979ff"
 		@click="() => Toast('点击成功')"
 	/>
@@ -58,7 +58,7 @@
 	<zm-icon
 		class="icon-example__animation-icon"
 		color="#2979ff"
-		:size="64"
+		:size="48"
 		:transition="300"
 		:name="iconName"
 		@click="toggle"

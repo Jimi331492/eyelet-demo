@@ -6,10 +6,12 @@
 
 ### 图标尺寸
 
+32px(xs)、40px(sm)、48px(md)、64px(lg)、80px(xl)，其中32(xs)和48(md)是最常用尺寸，在设计图上遇见没有边框的图自动往这两个尺寸上靠，选稍大那个（图标宽26选32，宽34选48）
+
 ```html
 <template>
- <zm-icon name="zm-logo" />
- <zm-icon name="zm-logo" :size="64" />
+ <zm-icon name="zm-logo" :size="32"/>
+ <zm-icon name="zm-logo" :size="48" />
 </template>
 ```
 
@@ -17,8 +19,8 @@
 
 ```html
 <template>
- <zm-icon :size="64" name="zm-logo" />
- <zm-icon :size="64" name="zm-logo" color="#2979ff" />
+ <zm-icon :size="48" name="zm-logo" />
+ <zm-icon :size="48" name="zm-logo" color="#2979ff" />
 </template>
 ```
 
@@ -28,7 +30,7 @@
 
 ```html
 <template>
- <zm-icon name="https://canyan.kp-static.com/mini/top-loading.gif" :size="64" />
+ <zm-icon name="https://canyan.kp-static.com/mini/top-loading.gif" :size="48" />
 </template>
 ```
 
@@ -41,8 +43,9 @@
 
 <template>
  <zm-icon
-  name="checkbox-marked-circle"
+  name="zm-logo"
   color="#2979ff"
+  :size="48"
   @click="() => Toast('点击成功')"
  />
 </template>
@@ -59,50 +62,24 @@
  const name = ref('information');
 
  function toggle() {
-  name.value = name.value === 'information' ? 'checkbox-marked-circle' : 'information';
+  iconName.value =
+   iconName.value === ref('zm-logo')
+    ? 'https://canyan.kp-static.com/mini/top-loading.gif'
+    : 'zm-logo';
  }
 </script>
 
 <template>
- <zm-icon color="#2979ff" :name="name" :transition="300" :size="30" @click="toggle" />
+ <zm-icon color="#2979ff" :name="name" :transition="300" :size="48" @click="toggle" />
 </template>
 ```
 
-### 自定义图标库
+### 新增图标
 
-首先您需要设置您自己的字体，并引入到您的项目。这里假设扩展一个名为 `my-icons` 的字体。
+首先您需要获取新增图标的SVG文件(大小建议1024*1024,命名`code`-`icon-name`)，并引入到[`@eyelet/icon`]下的/svg文件夹,执行`pnpm build:icons` 便可以更新图标。
 
 ```css
-/* playground-ignore */
-/* 设置字体 */
-@font-face {
- font-family: 'my-icons';
- src: url('https://xxx.my-icons.ttf') format('truetype');
-}
-
-/* 设置命名空间 */
-.my-icon {
- font-family: 'my-icons';
-}
-/* 或 */
-.my-icon--set {
- font-family: 'my-icons';
-}
-/* 设置命名空间结束 */
-
-/* 字体名称映射码点 */
-.my-icon-hot::before {
- content: '\F000';
-}
-```
-
-到这里你就成功的扩展了自己的图标库，`my-icon` 就是你的字体 `命名空间(namespace)`，您可以这样使用。
-
-```html
-<!-- playground-ignore -->
-<template>
- <zm-icon namespace="my-icon" name="hot" />
-</template>
+pnpm build:icons
 ```
 
 ## API
@@ -112,7 +89,7 @@
 | 参数         | 说明                               | 类型               | 默认值     |
 | ------------ | ---------------------------------- | ------------------ | ---------- |
 | `name`       | 图标名称                           | _string_           | `-`        |
-| `size`       | 尺寸                               |   number_ | `-`        |
+| `size`       | 尺寸                               |   _number_ | `48`        |
 | `color`      | 图标颜色, 只适用于字体图标         | _string_           | `-`        |
 | `namespace`  | 图标的命名空间, 可扩展自定义图标库 | _string_           | `zm-icon` |
 | `transition` | 过渡动画时间（ms）                 | _string \| number_ | `0`        |
@@ -129,4 +106,4 @@
 
 | 变量名        | 默认值 |
 | ------------- | ------ |
-| `--icon-size` | `40px` |
+| `--icon-size` | `48px` |
