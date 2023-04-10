@@ -35,7 +35,7 @@
 		"vue": "^3.2.0"
 	},
 	"dependencies": {
-		"@eyelet/icons": "1.0.0",
+		"@eyelet/icons": "workspace:*",
 		"@varlet/shared": "^2.9.0"
 	},
 	"devDependencies": {
